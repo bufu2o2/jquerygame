@@ -330,7 +330,7 @@ let game = {
         $(".battleMode").fadeIn(1000);
         setTimeout(() => {
             $(".bmPlayer").fadeIn(3000);
-            $(".bmCharacter").html("<div id = 'pimg'><img id = 'pcharacterPix' src = 'img/"+selectedCharacter[0]+".png'><img id = 'especial' src = 'img/"+selectedEnemy[0]+"-special.png'></div>");
+            $(".bmCharacter").html("<div id = 'pimg'><img id = 'pcharacterPix' src = '../img/"+selectedCharacter[0]+".png'><img id = 'especial' src = '../img/"+selectedEnemy[0]+"-special.png'></div>");
             $("#pmon").text(selectedCharacter[0]);
             $("#lvl").text("Level: "+selectedCharacter[1]);
             $("#hp").text("HP: "+selectedCharacter[2]);
@@ -347,7 +347,7 @@ let game = {
         }, 1000);
         setTimeout(() => {
             $(".bmEnemy").fadeIn(3000);
-            $("#bmEnemyChar").html("<div id = 'eimg'><img id = 'echaracterPix' src = 'img/"+selectedEnemy[0]+".png'><img id = 'pspecial' src = 'img/"+selectedCharacter[0]+"-special.png'></div>");
+            $("#bmEnemyChar").html("<div id = 'eimg'><img id = 'echaracterPix' src = '../../img/"+selectedEnemy[0]+".png'><img id = 'pspecial' src = '../img/"+selectedCharacter[0]+"-special.png'></div>");
             $("#epmon").text(selectedEnemy[0]);
             $("#elvl").text("Level: "+selectedEnemy[1]);
             $("#ehp").text("HP: "+selectedEnemy[2]);
