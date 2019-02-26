@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon Game</title>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Fredericka+the+Great|Love+Ya+Like+A+Sister|Major+Mono+Display" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class = "container">
+        <header>
+            <h1>Pokemon the jQuery Game</h1>
+            <h5>by Jake Huang</h5>
+        </header>
+        <div class = "main">
+            <div class = wbox>
+                <div class = wfront></div>
+                <div class = wback></div>
+            </div>
+            <div class = lbox>
+                <div class = lfront></div>
+                <div class = lback></div>
+            </div>
+            <div class = "mode">
+                <h2 class = "mode-instruction">Choose Your Character</h2>
+            </div>
+            <div class = battleMode>
+                <div class = bmPlayer>
+                    <div class = pchit></div>
+                    <div class = "bmCharacter"></div>
+                    <div class = "bmStatGroup">
+                        <p id = "pmon"></p>
+                        <p class = "bmStats" id = "lvl"></p>
+                        <p class = "bmStats" id = "hp"></p>
+                        <p class = "bmStats" id = "atk"></p>
+                        <p class = "bmStats" id = "def"></p>
+                        <p class = "bmStats" id = "sa"></p>
+                        <p class = "bmStats" id = "sd"></p>
+                        <p class = "bmStats" id = "s"></p>
+                    </div>
+                </div>
+                <div class = bmVs>
+                    <img src = "img/vs.png" class = bmVs id = versus>
+                    <ul class = "actionBtn">
+                        <li>
+                            <button id = "attack" class = "btnVS"></button>
+                            <button id = "attack" class = "btnVS"></button>
+                            <button id = "attack" class = "btnVS"></button>
+                            <button id = "attack" class = "btnVS"> Attack </button>
+                        </li>
+                    </ul>
+                    <ul class = "actionBtn">
+                        <li>
+                            <button id = "special" class = "btnVS"></button>
+                            <button id = "special" class = "btnVS"></button>
+                            <button id = "special" class = "btnVS"></button>
+                            <button id = "special" class = "btnVS"> Special </button>
+                        </li>
+                    </ul>
+                    <ul class = "actionBtn">
+                        <li>
+                            <button id = "defend" class = "btnVS"></button>
+                            <button id = "defend" class = "btnVS"></button>
+                            <button id = "defend" class = "btnVS"></button>
+                            <button id = "defend" class = "btnVS"> Defend </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class = bmEnemy>
+                    <div class = echit></div>
+                    <div class = "bmCharacter" id = "bmEnemyChar"></div>
+                    <div class = "bmStatGroup" id = "bmEnemyStatGroup">
+                        <p id = "epmon"></p>
+                        <p class = "bmeStats" id = "elvl"></p>
+                        <p class = "bmeStats" id = "ehp"></p>
+                        <p class = "bmeStats" id = "eatk"></p>
+                        <p class = "bmeStats" id = "edef"></p>
+                        <p class = "bmeStats" id = "esa"></p>
+                        <p class = "bmeStats" id = "esd"></p>
+                        <p class = "bmeStats" id = "es"></p>
+                    </div>
+                </div>
+            </div>
+            <div class = "commentary">
+                <p class = commentaryP></p>
+            </div>
+            <div class = "characters" id = "pikachu">
+                <button class = "Pikachu" id = "characterBox"><img src="img/pikachu.png" alt="Pikachu" id = "characterPix"></button>
+                <p>Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it's evidence that this Pokémon mistook the intensity of its charge. </p>
+            </div>
+            <div class = "characters" id = "bulbasaur">
+                <button class = "Bulbasaur" id = "characterBox"><img src="img/bulbasaur.png" alt="Bulbasaur" id = "characterPix"></button>
+                <p>Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger. </p>
+            </div>
+            <div class = "characters" id = "squirtle">
+                <button class = "Squirtle" id = "characterBox"><img src="img/squirtle.png" alt="Squirtle" id = "characterPix"></button>
+                <p>Squirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds. </p>
+            </div>
+            <div class = "characters" id = "charmander">
+                <button class = "Charmander" id = "characterBox"><img src="img/charmander.png" alt="Charmander" id = "characterPix"></button>
+                <p>The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely. </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/pokemon.js"></script>
+</body>
+</html>

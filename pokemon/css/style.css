@@ -1,0 +1,385 @@
+html, body{
+    background-color: black;
+}
+header, h2{
+    text-align: center;
+    color: white;
+    font-family: 'Bungee Inline', cursive;
+
+}
+header{
+    margin: 50px;
+}
+h1{
+    font-size: 60px;
+    font-weight: 200;
+    line-height: 1.5;
+}
+h5{
+    font-size: 20px;
+    font-weight: 200;
+}
+.container{
+    width: 1000px;
+    margin: 20px auto;
+}
+.main{
+    margin: 50px;
+    border: inset 5px grey;
+    border-radius: 10px;    
+}
+.mode{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 50px;
+}
+#pikachu{
+    grid-column: 1/3;
+    grid-row: 2;
+}
+#bulbasaur{
+    grid-column: 1/3;
+    grid-row: 3;
+}
+#squirtle{
+    grid-column: 1/3;
+    grid-row: 4;
+}
+#charmander{
+    grid-column: 1/3;
+    grid-row: 5;
+}
+.characters{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 150px;
+    border: inset 3px grey;
+    border-radius: 10px;
+    margin: 30px 100px;
+    background-color: darkgrey;
+}
+
+#characterBox{
+    grid-column: 1;
+    background-color: transparent;
+    border: none;
+}
+#characterPix{
+    height: 140px;
+    
+    /* background-color: pink; */
+}
+#pcharacterPix, #echaracterPix{
+    height: 140px;
+    position: absolute;
+    z-index: 1;
+}
+#pcharacterPix{
+    left: 90px;
+}
+#echaracterPix{
+    right: 70px;
+    top: 10px;
+}
+#pimg, #eimg {
+    height: 140px;
+    width: 100%;
+    position: relative;
+
+}
+#psimg, #esimg{
+    height: 140px;
+    width: 100%;
+    position: relative;
+}
+#pspecial, #especial{
+    height: 140px;
+    z-index: 3;
+    position: absolute;
+}
+#pspecial{
+    left: 90px;
+    opacity: 0;
+}
+#especial{
+    right: 70px;
+    top: 10px;
+    opacity: 0;
+}
+p{
+    color: black;
+    line-height: 1.5;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Love Ya Like A Sister', cursive;
+    /* background-color: red; */
+}
+img{
+    background-color: transparent;
+}
+.battleMode{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    margin: 20px 20px 20px 10px;
+}
+.bmPlayer, .bmEnemy{
+    display: none;
+    width: 100%;
+    height: 450px;
+    border: 5px inset grey;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.bmPlayer{
+background-color: darkred;
+}
+#pmon{
+    font-size: 30px;
+    color: white;
+}
+.bmStGroup{
+}
+.bmStats, .bmeStats{
+    /* background-color: aquamarine; */
+    color: white;
+    line-height: 1;
+
+
+}
+.bmVs{
+    grid-column: 2;
+    text-align: center;
+    display: none;
+    position: relative;
+}
+#versus{
+    width: 100%;
+
+}
+.actionBtn{
+margin: -20px 0 50px 0;
+}
+ul li {
+    position: relative;
+    list-style: none;
+    width: 60%;
+    height: 50px;
+    margin: 50px 0 80px 0;
+    transform: rotate(-15deg) skew(40deg);
+}
+.btnVS{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 25px auto;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+}
+.btnVS:nth-child(4){
+    border-top: 3px solid crimson;
+    border-right: 3px solid crimson;
+    border-left: .1px solid crimson;
+    border-bottom: .1px solid crimson;
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+ul li button{
+    position: absolute;
+    margin: 25px auto;
+    top: 0;
+    left: 40px;;
+    width: 100%;
+    height: 50px;
+    background: crimson;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+}
+ul li:hover button:nth-child(3){
+    transform: translate(14px, -14px);
+    opacity: .9;
+}
+ul li:hover button:nth-child(2){
+    transform: translate(7px, -7px);
+    opacity: .6;
+}
+ul li:hover button:nth-child(1){
+    transform: translate(0px, -0px);
+    opacity: .3;
+}
+ul li:hover button:nth-child(4){
+    transform: translate(21px, -21px);
+    opacity: .95;
+}
+ul li:active button:nth-child(3){
+    transform: translate(0, 0);
+    opacity: .9;
+    transition: 0.1s;
+}
+ul li:active button:nth-child(2){
+    transform: translate(0, 0);
+    opacity: .6;
+    transition: 0.1s;
+}
+ul li:active button:nth-child(1){
+    transform: translate(0, 0);
+    opacity: .3;
+    transition: 0.1s;
+}
+ul li:active button:nth-child(4){
+    transform: translate(0, 0);
+    opacity: .95;
+    transition: 0.1s;
+}
+.bmEnemy{
+    background-color: green; 
+}
+#epmon{
+    font-size: 30px;
+    color: white;
+}
+.commentary{
+    width: 98%;
+    height: 100px;
+    display: none;
+    /* background-color: red; */
+    color: white;
+    margin: -65px auto 10px auto;
+    border: 3px inset grey;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 40px;
+    font-weight: 100px;
+    font-family: 'Fredericka the Great', cursive;
+}
+.wbox{
+    position: absolute;
+    top: calc(50%);
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    /* background: red; */
+    transform-style: preserve-3d;
+    transition: 2s;
+    border-radius: 10px;
+    transform: perspective(500px) rotateY(0deg);
+    z-index: 5;
+    display: none;
+    pointer-events: none;
+}
+.wbox:hover{
+    transform: perspective(500px) rotateY(180deg);
+}
+.wbox:before{
+    content: url("../img/winside.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    transform: rotateY(-90deg) translateX(-25px);
+    transform-origin: left;
+}
+.wbox .wfront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/win.png") center;
+    background-size: 100%;
+    transform: translateZ(25px);
+}
+.wbox .wback{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/win.png") center;
+    background-size: 100%;
+    transform: translateZ(-25px);
+}
+.lbox{
+    position: absolute;
+    top: calc(50%);
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    /* background: red; */
+    transform-style: preserve-3d;
+    transition: 2s;
+    border-radius: 10px;
+    transform: perspective(500px) rotateY(0deg);
+    z-index: 5;
+    display: none;
+    pointer-events: none;
+}
+.lbox:hover{
+    transform: perspective(500px) rotateY(180deg);
+}
+.lbox:before{
+    content: url("../img/dside.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    transform: rotateY(-90deg) translateX(-25px);
+    transform-origin: left;
+}
+.lbox .lfront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/defeat.png") center;
+    background-size: 100%;
+    transform: translateZ(25px);
+}
+.lbox .lback{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/defeat.png") center;
+    background-size: 100%;
+    transform: translateZ(-25px);
+}
+.pchit{
+    position: absolute;
+    top: calc(50% - 47px);
+    left: -70px;
+    width: 400px;
+    height: 94px;
+    z-index: 2;
+    background: url("../img/crit.png") center;
+    background-size: 100%;
+    display: none;
+}
+.echit{
+    position: absolute;
+    top: calc(50% - 47px);
+    left: -70px;
+    width: 400px;
+    height: 94px;
+    z-index: 2;
+    background: url("../img/crit.png") center;
+    background-size: 100%;
+    display: none;
+}
