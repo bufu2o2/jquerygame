@@ -240,9 +240,9 @@ $("document").ready(function() {
         game.attack();
         game.zero();
         game.win.checker();
-        game.lose.checker();
         game.counterAttack();
         game.zero();
+        game.lose.checker();
         DOM.update();
     });
 
