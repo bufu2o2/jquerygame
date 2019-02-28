@@ -1,0 +1,214 @@
+body{
+    background: url("../img/swbg.jpg");
+    background-repeat: repeat;
+    background-size: 50%;
+}
+.container{
+    width: 1200px;
+    height: 800px;
+    background-color: rgba(0, 0, 0, .85);
+    border: 3px inset goldenrod;
+    border-radius: 8px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+
+}
+header{
+    color: blanchedalmond;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 45px;
+
+}
+h5{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 50;
+}
+.icontainer{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    /* background-color: pink; */
+}
+.selection{
+    display: grid;
+}
+.pselection{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* background-color: aqua; */
+}
+.eselection{
+    display: none;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* background-color: aqua; */
+}
+.fight{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    /* background-color: blueviolet; */
+}
+.result{
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    /* background-color: chartreuse; */
+}
+#rey, #strooper, #yoda, #kylo, #dtrooper{
+    justify-self: center;
+    align-content: center;
+    width: 50%;
+    background-color: rgba(218, 165, 32, 0.4);
+    border-radius: 10px;
+    border: 1px goldenrod inset;
+    position: relative;
+}
+.eselection #rey, .eselection #strooper, .eselection #yoda, .eselection #kylo, .eselection #dtrooper{
+    background-color: rgba(112, 0, 0, 0.4);
+}
+#rey{
+    content: url('../img/smallsize/rey-small.png');
+}
+#strooper{
+    content: url('../img/smallsize/strooper-small.png');
+}
+#yoda{
+    content: url('../img/smallsize/yoda-small.png');
+}
+#kylo{
+    content: url('../img/smallsize/kylo-small.png');
+}
+#dtrooper{
+    content: url('../img/smallsize/dtrooper-small.png');
+}
+#rey:hover, #strooper:hover, #yoda:hover, #kylo:hover, #dtrooper:hover{
+    background-color: rgba(218, 165, 32, 0.9);
+    border: 1px lightslategray inset;
+}
+.eselection #rey:hover, .eselection #strooper:hover, .eselection #yoda:hover, .eselection #kylo:hover, .eselection #dtrooper:hover{
+    background-color: rgba(112, 0, 0, 0.9);
+}
+.player{
+    display: grid;
+    grid-template-rows: 5fr 1fr 5fr;
+    grid-gap: 10px;
+}
+.cpu{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+#ppic, #pattack, #pstat{
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+    /* background-color: orange; */
+}
+#ppic{
+    width: 90%;
+    align-self: center;
+}
+#pattack{
+    height: 75%;
+    background-color: rgba(129, 0, 0, 0.2);
+    border-radius: 10px;
+    border: darkgrey 2px inset;
+    align-content: start;
+    transform-style: preserve-3d;
+    transition: 1s;
+    transform: rotateX(180deg);
+    pointer-events: none;
+}
+#pattack:hover{
+    transform: rotateX(180deg);
+    transition: 0.5s;
+    background-color: rgba(129, 0, 0, 0.9);
+}
+#pstat{
+    border: 2px grey inset;
+    align-self: start;
+    height: 90%;
+    border-radius: 10px;
+}
+#cpic, #cstat{
+    /* border: 2px red solid; */
+    width: 90%;
+}
+#cpic{
+    width: 90%;
+    justify-self: center;
+}
+#cstat{
+    border: 2px grey inset;
+    align-self: start;
+    height: 92%;
+    border-radius: 10px;
+}
+#pstat, #cstat{
+    text-align: center;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    color: blanchedalmond;
+    align-items: center;
+    display: grid;
+    align-content: center;
+    line-height: 3;
+}
+#complete, #round{
+    border: 2px grey inset;
+    width: 90%;
+    height: 95%;
+    border-radius: 10px;
+    justify-self: center;
+    color: grey;
+    font-size: 15px;
+    font-family: fantasy;
+}
+#round{
+    height: 100%;
+}
+#rnum{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+#defeated{
+    display: grid;
+    margin: 10px auto;
+    width: 60%;
+    justify-self: center;
+    align-self: center;
+    background-color: rgba(112, 128, 144, 0.5);
+    border: goldenrod 1px inset;
+    border-radius: 10px;
+}
+h2{
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blanchedalmond;
+    text-align: center;
+}
+#complete{
+    align-self: end;
+    margin: 30px 0;
+    height: 75%;
+    display: grid;
+    align-items: center;
+}
+h3{
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blanchedalmond;
+    text-align: center;
+    margin: 10px auto;
+}

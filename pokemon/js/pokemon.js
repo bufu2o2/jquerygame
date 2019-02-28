@@ -53,6 +53,10 @@ let speedLogic = () => {
     else{
         return "miss";
     }
+};
+let TLC = (element) => {
+    x.toLowerCase();
+    return x;
 }
 //===============================================================
 //Click Functions
@@ -333,6 +337,10 @@ let game = {
         setTimeout(() => {
             $(".bmPlayer").fadeIn(3000);
             $(".bmCharacter").html("<div id = 'pimg'><img id = 'pcharacterPix' src = 'img/"+schar+".png'><img id = 'especial' src = 'img/"+echar+"-special.png'></div>");
+            $(".pcharacterPix").attr("src", "img/"+schar+".png");
+            $("#especial").attr("src", "img/"+echar+"-special.png");
+            $(".echaracterPix").attr("src", "img/"+echar+".png");
+            $("#pspecial").attr("src", "img/"+schar+"-special.png");
             $("#pmon").text(selectedCharacter[0]);
             $("#lvl").text("Level: "+selectedCharacter[1]);
             $("#hp").text("HP: "+selectedCharacter[2]);
