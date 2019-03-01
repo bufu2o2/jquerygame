@@ -13,6 +13,7 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 80px 1fr;
+    position: relative;
 
 }
 header{
@@ -211,4 +212,26 @@ h3{
     color: blanchedalmond;
     text-align: center;
     margin: 10px auto;
+}
+.youwin{
+    position: absolute;
+    width: 388px;
+    height: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 194px);
+    content: url("../img/win.jpg");
+    border: 5px inset goldenrod;
+    border-radius: 10px;
+    display: none;
+}
+.youlose{
+    position: absolute;
+    width: 430px;
+    height: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 215px);
+    content: url("../img/lose.jpg");
+    border: 5px inset darkred;
+    border-radius: 10px;
+    display: none;
 }

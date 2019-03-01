@@ -39,9 +39,9 @@ $("document").ready(function() {
             iap: 0
         },
         vader: {
-            hp: 300,
+            hp: 10000,
             ap: 300,
-            cap: 400,
+            cap: 4000,
             iap: 0
         },
     };
@@ -71,26 +71,31 @@ $("document").ready(function() {
                     player.user.hp = character.rey.hp;
                     player.user.ap = character.rey.ap;
                     player.user.iap = character.rey.ap;
+                    $(".eselection > #rey").css({"display": "none"});
                 }
                 else if(pname === "strooper"){
                     player.user.hp = character.strooper.hp;
                     player.user.ap = character.strooper.ap;
                     player.user.iap = character.strooper.ap;
+                    $(".eselection > #strooper").css({"display": "none"});
                 }
                 else if(pname === "yoda"){
                     player.user.hp = character.yoda.hp;
                     player.user.ap = character.yoda.ap;
                     player.user.iap = character.yoda.ap;
+                    $(".eselection > #yoda").css({"display": "none"});
                 }
                 else if(pname === "kylo"){
                     player.user.hp = character.kylo.hp;
                     player.user.ap = character.kylo.ap;
                     player.user.iap = character.kylo.ap;
+                    $(".eselection > #kylo").css({"display": "none"});
                 }
                 else if(pname === "dtrooper"){
                     player.user.hp = character.dtrooper.hp;
                     player.user.ap = character.dtrooper.ap;
                     player.user.iap = character.dtrooper.ap;
+                    $(".eselection > #dtrooper").css({"display": "none"});
                 }
                 else{
                     player.user.hp = character.vader.hp;
@@ -133,10 +138,18 @@ $("document").ready(function() {
                 }
                 player.cpu.name = pname;
                 setTimeout(() => {
-                    $(".eselection > div").css({"pointer-events": "none", "transition": "1s", "background-color": "rgba(119, 136, 153, 0.4)"});
-                    $("#pattack").css({"transform": "rotateX(0deg)", "pointer-events": "all"});
+                    $(".eselection > div").css({
+                        "pointer-events": "none", 
+                        "transition": "1s", 
+                        "background-color": "rgba(119, 136, 153, 0.4)"
+                    });
+                    $("#pattack").css({
+                        "transform": "rotateX(0deg)", 
+                        "pointer-events": "all"
+                    });
                 },1000);
                 console.log("cpu stats: " + player.cpu);
+                game.winstatus = false;
             },
         },
         attack: () => {
@@ -147,31 +160,65 @@ $("document").ready(function() {
             console.log(player.user.name + "has a new AP of " + player.user.iap);
         },
         counterAttack: () => {
-            let temp = RNG(player.cpu.cap/3);
-            player.user.hp = (player.user.hp - temp);
-            console.log("The counter attack dealt: "+temp+" damage");
+            if(player.cpu.hp !== 0){
+                let temp = RNG(player.cpu.cap/2);
+                player.user.hp = (player.user.hp - temp);
+                console.log("The counter attack dealt: "+temp+" damage");
+            }
         },
         rounds: 0,
         win: {
             checker: () => {
-                if(player.cpu.hp === 0){
+                if(player.cpu.hp === 0 && game.rounds === 5){
+                    game.winstatus = true;
+                    game.win.end();
+                }
+                else if (player.cpu.hp === 0 && player.cpu.name === "vader"){
+                    game.winstatus = true;
+                    game.win.end();
+                }
+                else if(player.cpu.hp === 0){
                     $("#pattack").css({"pointer-events": "none"});
                     game.enemySelect();
+                    game.defeatedChecker();
                     game.rounds++;
+                    game.setPercent();
                     game.setDefeated();
                     console.log("the Player Wins!");
+                    game.VADER();
+                    DOM.update();
                 }
             },
-            celebrate: () => {
-
+            end: () => {
+                if(game.winstatus === true && game.losestatus === false){
+                    $(".youwin").fadeIn();
+                    $("#percentage").text("WIN!");
+                    $("#rnum > h3").text("WINNER!!");
+                }
+                else{
+                    $(".youwin").fadeOut();
+                }
             },
         },
         lose: {
             checker: () => {
                 if(player.user.hp === 0){
+                    game.losestatus = true;
                     $("#pattack").css({"pointer-events": "none"});
+                    game.lose.end();
                     game.enemySelect();
                     console.log("the Computer Wins!");
+                }
+            },
+            end: () => {
+                if(game.winstatus === false && game.losestatus === true){
+                   
+                    $("#percentage").html("<h2>LOSE!</h2>");
+                    $("#rnum > h3").text("LOSER!!");
+                    $(".youlose").fadeIn();
+                }
+                else{
+                    $(".youlose").fadeOut();
                 }
             },
         },
@@ -194,6 +241,28 @@ $("document").ready(function() {
                 "pointer-events": "none"
             });
         },
+        defeatedChecker: () => {    
+            player.user.defeated[game.rounds] = player.cpu.name;
+            for(let i=0; i<3; i++){
+                for(let x=0; x<player.user.defeated.length; x++){
+                    if(player.user.defeated[x] === "rey"){
+                        $("#rey").remove();
+                    }
+                    else if(player.user.defeated[x] === "strooper"){
+                        $("#strooper").remove();
+                    }
+                    else if(player.user.defeated[x] === "yoda"){
+                        $("#yoda").remove();
+                    }
+                    else if(player.user.defeated[x] === "kylo"){
+                        $("#kylo").remove();
+                    }
+                    else if(player.user.defeated[x] === "dtrooper"){
+                        $("#dtrooper").remove();
+                    }
+                }
+            }
+        },
         setDefeated: () => {
             $("#defeated").append("<div id = 'defeated" + game.rounds + "'></div>");
             $("#defeated"+game.rounds).css({
@@ -202,8 +271,20 @@ $("document").ready(function() {
                 "margin": "0 auto"
             });
         },
-        result: () => {
-
+        winstatus: false,
+        losestatus: false,
+        percentage: 0,
+        setPercent: () => {
+            game.percentage =  Math.floor((game.rounds / 4) * 100); 
+        },
+        VADER: () => {
+            if(player.user.defeated.length === 4){
+                game.set.cpu("vader");
+                player.cpu.name = "vader";
+                game.percentage = "ITS DARTH VADER!!!";
+                DOM.update();
+                $("#rnum > h3").html("BONUS ROUND!!!!!")
+            }
         },
     };
     let DOM = {
@@ -212,7 +293,17 @@ $("document").ready(function() {
             $("#cpic").css({"content": "url('img/smallsize/"+player.cpu.name+"-small.png')"});
             $("#pstat").html("<p>Stats:</p><p>HP: " + player.user.hp + "</p><p>Attack: " + player.user.ap + "</p>");
             $("#cstat").html("<p>Stats:</p><p>HP: " + player.cpu.hp + "</p><p>Attack: " + player.cpu.cap + "</p>");
-            $("#rnum > h3").text("Round " + (game.rounds+1));
+            if(player.cpu.name === "vader"){
+                $("#percentage").text(game.percentage);
+            }
+            else{
+                $("#rnum > h3").text("Round " + (game.rounds+1));
+                $("#percentage").text(game.percentage + "%");
+            }
+
+        },
+        reset: () => {
+            location.reload();  
         },
     };
 
@@ -240,10 +331,26 @@ $("document").ready(function() {
         game.attack();
         game.zero();
         game.win.checker();
-        game.counterAttack();
+        if(game.winstatus === false && player.cpu.name !== "vader"){
+            console.log("GAME WINSTATUS IS TRUE");
+            game.counterAttack();
+        }
+        else if(player.cpu.name === "vader"){
+            // console.log("COUNTER ATTACK FOR VADER ");
+            // game.counterAttack();
+        }
         game.zero();
         game.lose.checker();
         DOM.update();
+        DOM.update();
+    });
+    $(".youwin").on("click", () => {
+        console.log("WIN CLICK HAPPENED");
+        DOM.reset();
+    });
+    $(".youlose").on("click", () => {
+        console.log("LOSE CLICK HAPPENED");
+        DOM.reset();
     });
 
 
